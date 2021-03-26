@@ -1,41 +1,40 @@
-@using WebApp.Models;
-@model IEnumerable<Member>
+@model IEnumerable<WebApp.Models.User>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "User";
 }
-
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add new user", "Add")
 </p>
+
 <table class="table">
-    @* <tr>
+    <tr>
         <th>
-            @Html.DisplayNameFor(model => model.StudentName)
+            @Html.DisplayNameFor(model => model.Username)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Age)
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RollId)
         </th>
         <th></th>
-    </tr> *@
+    </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        @* <td>
-            @Html.DisplayFor(modelItem => item.Age)
+            @Html.DisplayFor(modelItem => item.Username)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentId  }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
-        </td> *@
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Username }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Username  }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Username })
+        </td>
     </tr>
 }
-
 </table>
