@@ -18,7 +18,7 @@ namespace WebApp.Controllers
         {
             _logger = logger;
         }
-        static List<User> SeedUser = new List<User>(){new User("Duong","1")};
+        static List<User> SeedUser = new List<User>(){new User("Admin","123",1),new User("Duong","1",2)};
 
         [Route("")]
         [Route("Home")]
@@ -53,8 +53,7 @@ namespace WebApp.Controllers
             return View();
         }
 
-        public IActionResult Logout(){
-            HttpContext.Session.SetString("Username",null);
+        public IActionResult Logout(){ 
             Response.Cookies.Delete("Username");
             return RedirectToAction("Login");
         }

@@ -1,0 +1,49 @@
+
+@model WebApp.Models.Member
+@inject WebApp.Services.Destination des;
+    @{
+        
+        
+    }
+<form asp-controller="Member" asp-action="Edit" method="POST">
+    <div>   
+        @Html.LabelFor(items => items.FirstName)
+    </div>
+    <div>
+        @Html.EditorFor(items => items.FirstName)
+    </div>
+    <div>
+        @Html.LabelFor(items => items.LastName)
+    </div>
+    <div>
+        @Html.EditorFor(items => items.LastName)
+    </div>
+    <div>
+        @Html.LabelFor(items => items.Gender)
+    </div>
+    <div>
+        @Html.EditorFor(items => items.Gender)</div>
+    <div>
+        @Html.LabelFor(items => items.DoB)
+    </div>
+    <div>
+        @Html.EditorFor(items => items.DoB)
+    </div>
+    <div>
+        @Html.LabelFor(items => items.PhoneNumber)
+    </div>
+    <div>
+        @Html.EditorFor(items => items.PhoneNumber)
+    </div>
+    <div>
+        @Html.LabelFor(items => items.BirthPlace)
+    </div>
+    <div>
+        @Html.DropDownList("BirthPlace" , new SelectList(des.ListPlace()));
+    </div>
+    <br/>
+    <input type="submit" value="Create"/>
+</form>
+
+
+

@@ -1,15 +1,15 @@
-  @{
-      ViewData["Title"] = "Login";
-  }
+@{
+    ViewData["Title"] = "Login";
+}
 
-  <form asp-controller="Home" asp-action="Login" method="POST">
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="Username" required>
+<form asp-controller="Home" asp-action="Login" method="POST">
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="Username" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="Password" required>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="Password" required>
 
-      <button type="submit" value="login">Login</button>
-    </div>
-  </form>
+    <button type="submit" value="login">Login</button>
+  </div>
+</form>

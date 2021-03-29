@@ -1,0 +1,78 @@
+@using WebApp.Models;
+@model IEnumerable<Member>
+
+
+
+@* <div>
+<form asp-controller = "Member" asp-action = "Find" method = "POST">
+    <input type = "text" name = "keyword" placeholder = "Input first name"/>
+        <input type = "submit" value = "Find"/>
+</form> *@
+<h2>Details</h2>
+<br>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Full Name
+        </th>
+        <th>
+            Phone Number
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { name=item.FirstName }) |
+            @Html.ActionLink("Details", "Details", new { name=item.FirstName  }) |
+            @Html.ActionLink("Delete", "Delete", new { name = item.FirstName })
+        </td>
+    </tr>
+}
+</table>
+
+@* <form >
+    <a asp-controller = "Member" asp-action = "Create" method = "POST">Create new</a>
+    <div>
+        <tr>
+            <th>Full name</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+            <th>PhoneNumber</th>
+            <th>Birth place</th>
+            <th></th>
+        </tr>
+    </div>
+    <div>
+    @foreach(var item in Model){
+        <tr>
+            <td>@item.FirstName @item.LastName</td>
+            <td>@item.Gender</td>
+            <td>@item.DoB</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.BirthPlace</td>
+            <td>@Html.ActionLink("Edit","Edit","Member", new{firstname = item.FirstName,lastname = item.LastName}) @Html.ActionLink("Delete","Delete","Member", new{firstname = item.FirstName,lastname = item.LastName})</td>
+        </tr>
+    }    
+       </div>
+    </table>    
+</form> *@
+    
+@* </div>
+<style>
+    th{
+        text-align: center;
+    }
+</style> *@
